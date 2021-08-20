@@ -1,20 +1,40 @@
 {
-  "name": "cli",
+  "name": "@development-community/cli",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "description": "Custom CLI for bots and API",
+  "main": "dist/index.js",
+  "bin": {
+    "cli": "./dist/index.js"
   },
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "deploy": "npm publish",
+    "build": "swc src -d dist"
+  },
+  "author": "booleans-oss",
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Development-Community/CLI.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Development-Community/CLI/issues"
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   },
-  "homepage": "https://github.com/Development-Community/CLI#readme"
+  "dependencies": {
+    "prompts": "^2.4.1"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.1.49",
+    "@swc/core": "^1.2.80",
+    "@types/node": "^16.6.2",
+    "@types/prompts": "^2.0.14",
+    "@typescript-eslint/eslint-plugin": "^4.29.2",
+    "@typescript-eslint/parser": "^4.29.2",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "prettier": "^2.3.2"
+  }
 }
