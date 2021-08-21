@@ -11,15 +11,12 @@ export default class Prompter implements IPrompter {
         return await prompts(this.questionsServices.getInitialQuestions)
     }
 
-    async askLanguage() {
-        return await prompts(this.questionsServices.getLanguage)
-    }
-
-    async askDiscordVersion() {
-        return await prompts(this.questionsServices.getDiscordVersion)
-    }
-
-    async askPackageManager() {
-        return await prompts(this.questionsServices.getPackageManager)
+    async askForDetails() {
+        return await prompts([
+            this.questionsServices.getLanguage,
+            this.questionsServices.getDiscordVersion,
+            this.questionsServices.getPackageManager,
+            ...this.questionsServices.getCredentials
+        ])
     }
 }

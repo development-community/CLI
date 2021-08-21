@@ -48,4 +48,20 @@ export default class QuestionsService implements IQuestionsService {
                 { title: 'NPM', value: 'npm' },]
         }
     }
+
+    public get getCredentials() {
+        return <Array<IQuestion>>[
+            { 
+                type: 'text',
+                name: 'prefix',
+                message: 'Quel est le préfixe du bot ?',
+            },
+            { 
+                type: 'text',
+                name: 'token',
+                message: 'Quel est le token du bot ?',
+            },
+
+        ]
+    }
 }
