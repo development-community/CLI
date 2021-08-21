@@ -1,5 +1,5 @@
 import { ADDRGETNETWORKPARAMS } from 'dns';
-import { IHelper, IPrompter, IScaffolder } from '../../typings';
+import { BotScaffoldDetails, IHelper, IPrompter, IScaffolder } from '../../typings';
 import { isValidLanguage, isValidDiscordVersion, isValidPackageManager } from '../../utils';
 
 class BotHelper implements IHelper {
@@ -11,7 +11,7 @@ class BotHelper implements IHelper {
     }
 
     async __main() {
-        const details = await this.prompter.askForDetails();
+        const details = <BotScaffoldDetails>(await this.prompter.askForDetails() as unknown);
         console.log(details)
     }
 }
